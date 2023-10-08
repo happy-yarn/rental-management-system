@@ -34,7 +34,7 @@ class Media extends BaseMedia
     public function getCacheTemporaryUrl()
     {
         $ttl = now()->addWeek();
-        $cacheName = 'MEDIA_URL:' . $this->uuid;
+        $cacheName = 'MEDIA_URL:'.$this->uuid;
 
         return Cache::remember($cacheName, $ttl, fn () => $this->getMediaSafeUrl($ttl));
     }
