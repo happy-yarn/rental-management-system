@@ -1,66 +1,110 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+## About
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A simple rental management system to reduce background jobs and ease of manage tenant profile and tracking of payments, complains, maintenance and so on...
 
-## About Laravel
+### Requirements
+To run this application you need to have:
+- PHP Version: `^8.2`
+- Exif PHP Extension
+- GD PHP Extension
+- Imagick PHP Extension
+- BCMath PHP Extension
+- Ctype PHP Extension
+- JSON PHP Extension
+- Fileinfo PHP extension
+- Mbstring PHP Extension
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+- [Redis](https://pecl.php.net/package/redis)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+### Official and third-party libraries
+List of used packages:
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Laravel Sanctum](https://laravel.com/docs/10.x/sanctum) for SPA authentication.
+- [Laravel IDE Helper Generator](https://github.com/barryvdh/laravel-ide-helper) to generate accurate autocompletion.
+- [Laravel Telescope](https://laravel.com/docs/10.x/telescope) provides insight into the requests coming into your application, exceptions, log entries, database queries, queued jobs, mail, notifications, cache operations, scheduled tasks, variable dumps, and more.
+- [Laravel Horizon](https://laravel.com/docs/10.x/horizon) provides a beautiful dashboard and code-driven configuration for your Laravel powered Redis queues. Horizon allows you to easily monitor key metrics of your queue system such as job throughput, runtime, and job failures.
+- [Laravel Pint](https://laravel.com/docs/10.x/pint) is an opinionated PHP code style fixer for minimalists. Pint is built on top of PHP-CS-Fixer and makes it simple to ensure that your code style stays clean and consistent.
+- [Predis](https://github.com/predis/predis) A flexible and feature-complete Redis client for PHP.
+- [Laravel Media Library](https://github.com/spatie/laravel-medialibrary) Associate files with Eloquent models.
+- [flysystem aws s3](https://github.com/thephpleague/flysystem-aws-s3-v3) Flysystem Adapter for AWS SDK V3
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### Getting started
+Please read and ask if It's not clear from environment setup and development
 
-## Learning Laravel
+#### Clone the project
+There is different of way cloning the project with https, ssh and cli.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+**Clone through web**
+`git clone https://github.com/happy-yarn/rental-management-system.git`
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+**Clone through ssh**
+`git clone git@github.com:happy-yarn/rental-management-system.git`
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+**Clone through cli**
+`gh repo clone happy-yarn/rental-management-system`
 
-## Laravel Sponsors
+**Create environment file**
+On `project` directory create `.env` and copy the `.env.example_using_docker` (Applicable for WSL2 with Docker Desktop) If purely windows copy the `.env.example` and paste everything on `.env`
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+#### Environment setup
+We might have different environment some might use, If you choose not to use WSL2 with Windows It's ok as long It runs.
 
-### Premium Partners
+#### Windows with WSL2
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+- You can watch how to setup WSL2 [here](https://www.youtube.com/watch?v=n-J9438Mv-s)
+- Download [Docker Desktop](https://www.docker.com/products/docker-desktop/)
 
-## Contributing
+#### Purely windows
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+- Download and install [Laragon Full](https://laragon.org/download/index.html)
+- Update [PHP Version to 8.2](https://pen-y-fan.github.io/2023/01/15/how-to-update-the-php-version-in-laragon/)
+- Enable all the required PHP extensions
+- Disabled apache and enable nginx
+- Update nginx directory root to `C:\project-path\public`
+- Download and install [composer](https://getcomposer.org/download/)
+- Add PHP to your [environment variable](https://learn.microsoft.com/en-us/iis/application-frameworks/install-and-configure-php-on-iis/install-and-configure-php)
 
-## Code of Conduct
+### Work on project
+Assuming above is done, open your command line and navigate to your path e.g. `cd C:\project-path` or on WSL open Ubuntu app and navigate to your cloned repository.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+On command line write `php artisan generate:key` to generate `APP_KEY`
 
-## Security Vulnerabilities
+#### Understanding environment file
+As you notice we have a file `.env` and directory `config` that contains **PHP** files as these files read the `.env`
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+**The database (Only for purely windows)**
+Create your database using phpmyadmin or your favorite MySQL GUI and configure above.
+```
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=laravel
+DB_USERNAME=root
+DB_PASSWORD=
+```
+Change the redis configuration as well. Mostly just the `REDIS_HOST`
+```
+REDIS_HOST=redis
+REDIS_PASSWORD=null
+REDIS_PORT=6379
+REDIS_TLS=false
+```
+
+#### Running commands
+Everything is setup and It's time to test if everything is working.
+
+```
+composer install
+yarn
+php artisan telescope:install
+php artisan horizon:install
+php artisan migrate
+```
+With this It will install Laravel framework and front end dependencies and will generate your database table.
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
