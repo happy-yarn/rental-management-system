@@ -12,21 +12,35 @@
                 Please enter your crendentials to continue.
             </p>
             <div class="card">
-                <div class="card-body">
-                    <form method="POST" action="{{ route('login') }}">
+                <div class="card-body p-4">
+                    <form method="POST" action="{{ route('login') }}" id="login-form">
+                        @csrf
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email address</label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                            <label for="email">Email address</label>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" id="email" aria-describedby="emailHelp"
+                                name="email" placeholder="Enter email">
+                            @error('email')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputPassword1">Password</label>
-                            <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                            <label for="password">Password</label>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password"
+                                placeholder="Enter password">
+                            @error('password')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                            <input type="checkbox" class="form-check-input" id="remember" name="remember" id="remember"
+                                {{ old('remember') ? 'checked' : '' }}>
+                            <label class="form-check-label" for="remember">{{ __('Remember Me') }}</label>
                         </div>
-                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button type="submit" class="btn btn-primary">{{ __('login') }}</button>
                     </form>
                 </div>
             </div>
