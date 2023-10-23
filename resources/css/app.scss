@@ -11,3 +11,10 @@
     height: 100%;
   }
 }
+
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
