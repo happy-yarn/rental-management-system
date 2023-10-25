@@ -19,7 +19,16 @@
 </head>
 
 <body>
-    @yield('content')
+    @guest
+        <div class=""d-flex justify-content-center align-items-center height-vh-full">
+            @yield('content')
+        </div>
+    @else
+        @include('partials.navigation')
+        <div class="container">
+            @yield('content')
+        </div>
+    @endguest
 </body>
 
 </html>
