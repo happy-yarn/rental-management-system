@@ -5,5 +5,7 @@
 @endpush
 
 @section('content')
-Dashboard here
+<div class="py-5">
+    Dashboard here
+</div>
 @endsection

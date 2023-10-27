@@ -9,14 +9,19 @@ use App\Http\Requests\Auth\LoginRequest;
 use App\Models\User;
 use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
+use Illuminate\Routing\Redirector;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Symfony\Component\HttpFoundation\Response;
 
 class LoginController extends Controller
 {
-    public function show(): View|Factory
+    public function show(): View|Factory|Redirector|RedirectResponse
     {
+        if (Auth::check()) {
+            return redirect(route('home'));
+        }
+
         return view('pages.auth.login');
     }
 

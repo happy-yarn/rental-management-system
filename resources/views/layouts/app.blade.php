@@ -20,14 +20,18 @@
 
 <body>
     @guest
-        <div class=""d-flex justify-content-center align-items-center height-vh-full">
+        <div class="d-flex justify-content-center align-items-center height-vh-full">
             @yield('content')
         </div>
     @else
-        @include('partials.navigation')
-        <div class="container">
-            @yield('content')
-        </div>
+        @if (Request::is('/'))
+             @yield('content')
+        @else
+            @include('partials.navigation')
+            <div class="container">
+                @yield('content')
+            </div>
+        @endif
     @endguest
 </body>
 

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\Auth\LogoutController;
 use App\Http\Controllers\DashboardController;
 use Illuminate\Support\Facades\Route;
 
@@ -22,6 +23,9 @@ Route::name('login')->group(function () {
     Route::post('login', [LoginController::class, 'store']);
 });
 
-Route::middleware('auth:sanctum')->group(function () {
+Route::middleware('auth')->group(function () {
     Route::get('dashboard', [DashboardController::class, 'show'])->name('home');
+
+    // auth logout
+    Route::post('logout', LogoutController::class)->name('logout');
 });
