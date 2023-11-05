@@ -8,10 +8,10 @@ use Illuminate\Contracts\View\View;
 use Illuminate\Contracts\View\Factory;
 use Illuminate\Http\Request;
 
-class DashboardController extends Controller
+class ApartmentController extends Controller
 {
-    public function show(Request $request): View|Factory
+    public function index(Request $request): View|Factory
     {
-        return view('pages.dashboard');
+        return view('pages.apartments.index');
     }
 }

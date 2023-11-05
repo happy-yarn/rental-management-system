@@ -3,6 +3,8 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+
+use App\Enums\UserType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -46,4 +48,14 @@ class User extends Authenticatable
         'phone_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function isStaff(): bool
+    {
+        return $this->type > UserType::TENANT->value;
+    }
+
+    public function isTenant(): bool
+    {
+        return $this->type === UserType::TENANT->value;
+    }
 }
