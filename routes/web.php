@@ -41,6 +41,8 @@ Route::middleware('auth')->group(function () {
     // pages
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('index');
+        Route::get('create', [UserController::class, 'create'])->name('create');
+        Route::get('{id}', [UserController::class, 'show'])->name('show');
     });
 
     Route::prefix('apartments')->name('apartments.')->group(function () {

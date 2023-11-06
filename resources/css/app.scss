@@ -18,3 +18,20 @@
   flex-direction: column;
   gap: 24px;
 }
+
+.table {
+  &.last-item-no-border {
+    tbody {
+      tr {
+        &.vertical-align-middle {
+          vertical-align: middle;
+        }
+        &:last-child {
+          th, td {
+            border-bottom: none;
+          }
+        }
+      }
+    }
+  }
+}

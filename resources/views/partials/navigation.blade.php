@@ -14,20 +14,20 @@
                 </li>
                 @if (auth()->user()->isStaff())
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('users') ? 'active' : '' }}" href="{{ route('users.index') }}">Users</a>
+                    <a class="nav-link {{ str(request()?->route()?->getName())->contains('users.') ? 'active' : '' }}" href="{{ route('users.index') }}">Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('apartments') ? 'active' : '' }}" href="{{ route('apartments.index') }}">Apartments</a>
+                    <a class="nav-link {{ str(request()?->route()?->getName())->contains('apartments.') ? 'active' : '' }}" href="{{ route('apartments.index') }}">Apartments</a>
                 </li>
                 @endif
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('maintenance') ? 'active' : '' }}" href="{{ route('maintenance.index') }}">Maintenance</a>
+                    <a class="nav-link {{ str(request()?->route()?->getName())->contains('maintenance.') ? 'active' : '' }}" href="{{ route('maintenance.index') }}">Maintenance</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('complains') ? 'active' : '' }}" href="{{ route('complains.index') }}">Complains</a>
+                    <a class="nav-link {{ str(request()?->route()?->getName())->contains('complains.') ? 'active' : '' }}" href="{{ route('complains.index') }}">Complains</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ Request::is('invoices') ? 'active' : '' }}" href="{{ route('invoices.index') }}">Invoices</a>
+                    <a class="nav-link {{ str(request()?->route()?->getName())->contains('invoices.') ? 'active' : '' }}" href="{{ route('invoices.index') }}">Invoices</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle {{ Request::is('my-account') ? 'active' : '' }}" href="#" role="button" data-bs-toggle="dropdown"

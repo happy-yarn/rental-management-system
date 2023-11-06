@@ -6,6 +6,6 @@
 
 @section('content')
 <div class="py-5">
-    My account page
+    <h1>My Account</h1>
 </div>
 @endsection

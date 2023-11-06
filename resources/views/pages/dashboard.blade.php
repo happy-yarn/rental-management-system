@@ -6,6 +6,6 @@
 
 @section('content')
 <div class="py-5">
-    Dashboard here
+    <h1>Dashboard</h1>
 </div>
 @endsection

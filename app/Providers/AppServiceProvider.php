@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -23,6 +24,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        // @link https://laravel.com/docs/10.x/pagination#using-bootstrap
+        Paginator::useBootstrapFive();
+
         // @link https://laravel.com/docs/10.x/eloquent#configuring-eloquent-strictness
         if ($this->app->environment('local')) {
             Model::preventLazyLoading();
