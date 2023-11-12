@@ -73,7 +73,11 @@ class UserController extends Controller
 
         if (filled($payload['new_password']) && filled($payload['current_password'] && !Hash::check($payload['current_password'], $user->password))) {
             return back()->with('danger', 'Unable to change password, update failed!');
+        } else {
+            $payload['password'] = Hash::make($payload['new_password']);
         }
+
+        $user->update($payload);
 
         return redirect()->to(route('users.index'))->with('success', $payload['name'] . ' has been updated!');
     }
