@@ -42,7 +42,10 @@ Route::middleware('auth')->group(function () {
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', [UserController::class, 'index'])->name('index');
         Route::get('create', [UserController::class, 'create'])->name('create');
-        Route::get('{id}', [UserController::class, 'show'])->name('show');
+        Route::post('create', [UserController::class, 'store']);
+        Route::get('{user}', [UserController::class, 'show'])->name('show');
+        Route::put('{user}', [UserController::class, 'update']);
+        Route::delete('{user}', [UserController::class, 'destroy']);
     });
 
     Route::prefix('apartments')->name('apartments.')->group(function () {

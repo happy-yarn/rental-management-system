@@ -14,4 +14,26 @@ enum UserType: int
     {
         return array_column(self::cases(), 'values');
     }
+
+    public static function formSelectOptions(): array
+    {
+        return [
+            [
+                'label' => 'Admin',
+                'value' => self::ADMIN->value,
+            ],
+            [
+                'label' => 'Landlord',
+                'value' => self::LANDLORD->value,
+            ],
+            [
+                'label' => 'Tenant',
+                'value' => self::TENANT->value,
+            ],
+            [
+                'label' => 'None',
+                'value' => null,
+            ],
+        ];
+    }
 }

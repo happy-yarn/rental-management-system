@@ -34,9 +34,13 @@
                                     <td>{{ $user->created_at->format('Y-m-d') }}</td>
                                     <td>{{ $user->updated_at->diffForHumans() }}</td>
                                     <td>
-                                        <div>
-                                            <a href="{{ route('users.show', ['id' => $user->id]) }}" class="btn btn-secondary">Edit</a>
-                                            <button type="button" class="btn btn-danger">Delete</button>
+                                        <div class="d-flex gap">
+                                            <a href="{{ route('users.show', ['user' => $user->id]) }}" class="btn btn-secondary">Edit</a>
+                                            <form method="POST" action="{{ route('users.show', ['user' => $user->id]) }}">
+                                                @csrf
+                                                    @method('DELETE')
+                                                <button type="submit" class="btn btn-danger">Delete</button>
+                                            </form>
                                         </div>
                                     </td>
                                 </tr>
